@@ -18,7 +18,7 @@ public class TestBase {
     driver.manage().window().maximize();
 
     openSite("https://trello.com");
-    login("elena.telran@yahoo.com", "12345.com");
+    login("annabalabuha77@gmail.com", "annadorosh77");
   }
 
   public void login(String email, String password) {
@@ -88,5 +88,22 @@ driver.quit();
 
   public void confirmBoardCreation() {
     click(By.cssSelector("[data-test-id='header-create-board-submit-button']"));
+  }
+
+  protected String getTeamNameFromTeamPage() {
+    return driver.findElement(By.cssSelector("h1")).getText();
+  }
+
+  protected void returnToHomePage() throws InterruptedException {
+    Thread.sleep(1000);
+    click(By.cssSelector("a[href='/']"));
+  }
+
+  public int getTeamsCount() {
+    return driver.findElements(By.cssSelector("//*[@class='_mtkwfAlvk6O3f']/../../..//li")).size();
+  }
+
+  public void clickXButton() {
+
   }
 }
